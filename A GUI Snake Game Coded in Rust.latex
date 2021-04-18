@@ -1,6 +1,6 @@
 \documentclass{article}
 \usepackage{blindtext}
-\usepackage[paperheight=86.3in,paperwidth=10in,margin=1in]{geometry}
+\usepackage[paperheight=87.5in,paperwidth=10in,margin=1in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
