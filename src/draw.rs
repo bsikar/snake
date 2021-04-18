@@ -65,7 +65,7 @@ pub fn to_block_size(size: u32) -> f64 {
     f64::from(size) * BLOCK_SIZE
 }
 
-// draw a rectangle on the screen with the parameters inputed
+// draw a rectangle on the screen with the parameters inputted
 pub fn draw(color: Color, x: u32, y: u32, width: u32, height: u32, c: &Context, g: &mut G2d) {
     rectangle(
         color,
