@@ -1,0 +1,18 @@
+[package]
+name = "snake"
+version = "0.1.0"
+authors = ["Brighton Sikarskie <brighton.sikarskie@tuta.io>"]
+edition = "2018"
+description = "A simple GUI rust snake game"
+readme = "README.md"
+homepage = "https://github.com/bsikar/snake"
+repository = "https://github.com/bsikar/snake/"
+license = "MIT"
+license-file = "LICENSE"
+keywords = ["gamedev", "graphics", "game", "gui"]
+categories = ["games"]
+
+[dependencies]
+rand = "0.8.0"
+piston_window = "0.119.0"
+piston2d-opengl_graphics = "0.78.0"
