@@ -31,5 +31,5 @@ https://www.ffonts.net/Fira-Sans-Regular.font
 ## Setup and run
 Install rust:</br>
 https://www.rust-lang.org/tools/install</br>
-cd into the src directory and run:
+be in the root directory and run:
 <code>cargo run</code>
