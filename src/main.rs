@@ -38,7 +38,7 @@
  * for more information about this read this:
  * https://users.rust-lang.org/t/rust-should-have-a-big-standard-library-and-heres-why/37449
  * it talks about making rust have a larger standard library and the creaters of the
- * language shut this down listing the reasons for not having a large libary.
+ * language shut this down listing the reasons for not having a large library.
  *
  * Also refer to this to learn some more about cargo (the package manager for rust)
  * https://doc.rust-lang.org/stable/book/ch01-03-hello-cargo.html
