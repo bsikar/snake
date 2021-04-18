@@ -8,7 +8,6 @@ readme = "README.md"
 homepage = "https://github.com/bsikar/snake"
 repository = "https://github.com/bsikar/snake/"
 license = "MIT"
-license-file = "LICENSE"
 keywords = ["gamedev", "graphics", "game", "gui"]
 categories = ["games"]
 
