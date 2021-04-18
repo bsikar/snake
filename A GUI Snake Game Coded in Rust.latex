@@ -1,6 +1,6 @@
 \documentclass{article}
 \usepackage{blindtext}
-\usepackage[paperheight=87.5in,paperwidth=10in,margin=1in]{geometry}
+\usepackage[paperheight=91in,paperwidth=10in,margin=1in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
@@ -19,7 +19,7 @@
 \maketitle
 
 \section{LICENSE}
-\begin{minted}{brainfuck}
+\begin{minted}{md}
 MIT License
 
 Copyright (c) 2021 Brighton Sikarskie
@@ -44,36 +44,53 @@ SOFTWARE.
 \end{minted}
 
 \section{README.md}
-\begin{minted}{brainfuck}
+\begin{minted}{md}
+# Snake
+
+## Game
+
+<p align="left">
+<img alt="snake beginning" src="assets/snake beginning.png"/>
+<img alt="snake during" src="assets/snake during.png"/>
+<img alt="snake final" src="assets/snake final.png"/>
+<img alt="snake gameplay" src="assets/snake gameplay.gif"/>
+</p>
+
+## Information for College Board
 The code that I am using that is not a part of the standard library are:
 
 rand:
-https://crates.io/crates/rand
-
+https://crates.io/crates/rand</br>
 piston_window:
-https://crates.io/crates/piston_window
+https://crates.io/crates/piston_window</br>
+piston2d-opengl_graphics:
+https://crates.io/crates/piston2d-opengl_graphics</br>
+find_folder:
+https://crates.io/crates/find_folder
 
-piston2d-opengl_graphics
-https://crates.io/crates/piston2d-opengl_graphics
-
-
-**** NOTE ****
-Rust has a really small standard library so it is common to 'import' others code
-for more information about this read this:
-https://users.rust-lang.org/t/rust-should-have-a-big-standard-library-and-heres-why/37449
-it talks about making rust have a larger standard library and the creaters of the
+**** NOTE ****</br>
+Rust has a really small standard library so it is common to 'import' others code</br>
+for more information about this read this:</br>
+https://users.rust-lang.org/t/rust-should-have-a-big-standard-library-and-heres-why/37449</br>
+it talks about making rust have a larger standard library and the creaters of the</br>
 language shut this down listing the reasons for not having a large library.
 
-Also refer to this to learn some more about cargo (the package manager for rust)
+Also refer to this to learn some more about cargo (the package manager for rust)</br>
 https://doc.rust-lang.org/stable/book/ch01-03-hello-cargo.html
 
-Cargo is a convention and is standard even though I am taking code from a third party source
+Cargo is a convention and is standard even though I am taking code from a third party source</br>
 it is standard.
 
 The only asset that I used in this code is a font:
 
 FiraSans-Regular.ttf:
 https://www.ffonts.net/Fira-Sans-Regular.font
+
+## Setup and run
+Install rust:</br>
+https://www.rust-lang.org/tools/install</br>
+be in the root directory and run:
+<code>cargo run</code>
 \end{minted}
 
 \section{Cargo.toml}
@@ -88,7 +105,6 @@ readme = "README.md"
 homepage = "https://github.com/bsikar/snake"
 repository = "https://github.com/bsikar/snake/"
 license = "MIT"
-license-file = "LICENSE"
 keywords = ["gamedev", "graphics", "game", "gui"]
 categories = ["games"]
 
@@ -96,6 +112,7 @@ categories = ["games"]
 rand = "0.8.0"
 piston_window = "0.119.0"
 piston2d-opengl_graphics = "0.78.0"
+find_folder = "0.3.0"
 \end{minted}
 
 \section{main.rs}
@@ -157,6 +174,7 @@ fn main() {
 \begin{minted}{rust}
 use crate::food::Food;
 use crate::snake::*;
+use find_folder::Search;
 use opengl_graphics::{GlGraphics, GlyphCache};
 use piston_window::*;
 
@@ -233,9 +251,10 @@ impl Game {
 
     // draw the game over screen and show the final length of the snake
     pub fn draw_game_over(&self, args: RenderArgs) {
+        let assets = Search::ParentsThenKids(3, 3).for_folder("assets").unwrap();
+        let font = assets.join("FiraSans-Regular.ttf");
         let mut gl = GlGraphics::new(OpenGL::V3_2);
-        let mut glyphs =
-            GlyphCache::new("assets/FiraSans-Regular.ttf", (), TextureSettings::new()).unwrap();
+        let mut glyphs = GlyphCache::new(font, (), TextureSettings::new()).unwrap();
         gl.draw(args.viewport(), |c, g| {
             clear(Color::BACKGROUND, g);
             text(
@@ -509,7 +528,7 @@ pub fn to_block_size(size: u32) -> f64 {
     f64::from(size) * BLOCK_SIZE
 }
 
-// draw a rectangle on the screen with the parameters inputed
+// draw a rectangle on the screen with the parameters inputted
 pub fn draw(color: Color, x: u32, y: u32, width: u32, height: u32, c: &Context, g: &mut G2d) {
     rectangle(
         color,
