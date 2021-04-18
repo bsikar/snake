@@ -12,7 +12,7 @@ https://crates.io/crates/piston2d-opengl_graphics</br>
 
 **** NOTE ****</br>
 Rust has a really small standard library so it is common to 'import' others code</br>
-for more information about this read this:
+for more information about this read this:</br>
 https://users.rust-lang.org/t/rust-should-have-a-big-standard-library-and-heres-why/37449</br>
 it talks about making rust have a larger standard library and the creaters of the</br>
 language shut this down listing the reasons for not having a large library.
