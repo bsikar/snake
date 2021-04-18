@@ -29,9 +29,11 @@
  * piston_window:
  * https://crates.io/crates/piston_window
  *
- * piston2d-opengl_graphics
+ * piston2d-opengl_graphics:
  * https://crates.io/crates/piston2d-opengl_graphics
  *
+ * find_folder:
+ * https://crates.io/crates/find_folder
  *
  * **** NOTE ****
  * Rust has a really small standard library so it is common to 'import' others code
