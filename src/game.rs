@@ -29,11 +29,9 @@
  * piston_window:
  * https://crates.io/crates/piston_window
  *
- * piston2d-opengl_graphics:
+ * piston2d-opengl_graphics
  * https://crates.io/crates/piston2d-opengl_graphics
  *
- * find_folder:
- * https://crates.io/crates/find_folder
  *
  * **** NOTE ****
  * Rust has a really small standard library so it is common to 'import' others code
@@ -56,6 +54,7 @@
 
 use crate::food::Food;
 use crate::snake::*;
+use find_folder::Search;
 use opengl_graphics::{GlGraphics, GlyphCache};
 use piston_window::*;
 
@@ -132,9 +131,10 @@ impl Game {
 
     // draw the game over screen and show the final length of the snake
     pub fn draw_game_over(&self, args: RenderArgs) {
+        let assets = Search::ParentsThenKids(3, 3).for_folder("assets").unwrap();
+        let font = assets.join("FiraSans-Regular.ttf");
         let mut gl = GlGraphics::new(OpenGL::V3_2);
-        let mut glyphs =
-            GlyphCache::new("assets/FiraSans-Regular.ttf", (), TextureSettings::new()).unwrap();
+        let mut glyphs = GlyphCache::new(font, (), TextureSettings::new()).unwrap();
         gl.draw(args.viewport(), |c, g| {
             clear(Color::BACKGROUND, g);
             text(
