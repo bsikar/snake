@@ -1,5 +1,13 @@
 # Snake
 
+## Game
+
+<p align="left">
+<img alt="snake beginning" src="assets/snake beginning.png"/>
+<img alt="snake during" src="assets/snake during.png"/>
+<img alt="snake final" src="assets/snake final.png"/>
+</p>
+
 ## Information for College Board
 The code that I am using that is not a part of the standard library are:
 
