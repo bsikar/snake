@@ -6,6 +6,7 @@
 <img alt="snake beginning" src="assets/snake beginning.png"/>
 <img alt="snake during" src="assets/snake during.png"/>
 <img alt="snake final" src="assets/snake final.png"/>
+<img alt="snake gameplay" src="assets/snake gameplay.gif"/>
 </p>
 
 ## Information for College Board
