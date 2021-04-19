@@ -221,7 +221,7 @@ impl Game {
             window_size: size,
         }
     }
-    // call a function to draw the instructions screen
+    // draw the instructions screen
     pub fn draw_instructions(&self, args: RenderArgs) {
         let assets = Search::ParentsThenKids(3, 3).for_folder("assets").unwrap();
         let font = assets.join("FiraSans-Regular.ttf");
