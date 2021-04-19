@@ -80,6 +80,16 @@ fn main() {
         window.size(),
     );
 
+    while let Some(e) = window.next() {
+        if let Some(args) = e.render_args() {
+            game.draw_instructions(args);
+        }
+
+        if let Some(Button::Keyboard(_)) = e.press_args() {
+            break;
+        }
+    }
+
     let mut x = Key::Q;
 
     while let Some(e) = window.next() {
