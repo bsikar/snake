@@ -93,6 +93,52 @@ impl Game {
             window_size: size,
         }
     }
+    // call a function to draw the instructions screen
+    pub fn draw_instructions(&self, args: RenderArgs) {
+        let assets = Search::ParentsThenKids(3, 3).for_folder("assets").unwrap();
+        let font = assets.join("FiraSans-Regular.ttf");
+        let mut gl = GlGraphics::new(OpenGL::V3_2);
+        let mut glyphs = GlyphCache::new(font, (), TextureSettings::new()).unwrap();
+        gl.draw(args.viewport(), |c, g| {
+            clear(Color::BACKGROUND, g);
+            text(
+                Color::TEXT,
+                (self.window_size.width / 25.0) as u32,
+                "WASD or Arrow Keys: Move",
+                &mut glyphs,
+                c.transform
+                    .trans(self.window_size.width / 4.0, self.window_size.height / 2.0),
+                g,
+            )
+        })
+        .expect("Failed to make end screen");
+
+        gl.draw(args.viewport(), |c, g| {
+            text(
+                Color::TEXT,
+                (self.window_size.width / 25.0) as u32,
+                "Q: Pause",
+                &mut glyphs,
+                c.transform
+                    .trans(self.window_size.width / 4.0, self.window_size.height / 2.35),
+                g,
+            )
+        })
+        .expect("Failed to make end screen");
+
+        gl.draw(args.viewport(), |c, g| {
+            text(
+                Color::TEXT,
+                (self.window_size.width / 25.0) as u32,
+                "Esc: Quit",
+                &mut glyphs,
+                c.transform
+                    .trans(self.window_size.width / 4.0, self.window_size.height / 1.75),
+                g,
+            )
+        })
+        .expect("Failed to make end screen");
+    }
 
     // update the game by calling functions to move the snake
     // have the snake eat food and spawn new food
