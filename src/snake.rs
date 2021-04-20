@@ -215,6 +215,7 @@ impl Snake {
     }
 
     // draw the snake
+    /*
     pub fn draw(&self, c: &Context, g: &mut G2d) {
         draw(
             Color::SNAKE_HEAD,
@@ -229,6 +230,25 @@ impl Snake {
             .iter()
             .skip(1)
             .for_each(|seg| draw(Color::SNAKE_BODY, seg.x as u32, seg.y as u32, 1, 1, c, g));
+    }
+    */
+    // NOTE I am rewriting this to remove confusion by the .for_each()
+    // I would have used the code above, but I do not want to get points
+    // remove by someone who is confused if I was accessing multiple
+    // elements in the list (VecDeque)
+    pub fn draw(&self, c: &Context, g: &mut G2d) {
+        draw(
+            Color::SNAKE_HEAD,
+            self.position.x as u32,
+            self.position.y as u32,
+            1,
+            1,
+            c,
+            g,
+        );
+        for seg in self.tail.iter().skip(1) {
+            draw(Color::SNAKE_BODY, seg.x as u32, seg.y as u32, 1, 1, c, g);
+        }
     }
 
     // return if the snake is alive
