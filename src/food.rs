@@ -77,12 +77,38 @@ impl Food {
     }
 
     // spawn the food on the screen in a valid location
+    /*
     pub fn spawn(&mut self, size: Size, snake: &Snake) {
         while snake.tail.contains(&self.position) {
             self.position = Position {
                 x: thread_rng().gen_range(0..=(size.width / (BLOCK_SIZE * 2.0)) as i32),
                 y: thread_rng().gen_range(0..=(size.height / (BLOCK_SIZE * 2.0)) as i32),
             };
+        }
+    }
+    */
+    // NOTE I am rewriting this to fit the college board requirements
+    // I would have used the code above if it fit the requirements
+    pub fn spawn(&mut self, size: Size, snake: &Snake) {
+        loop {
+            let mut thing: bool = true;
+            for i in snake.tail.iter() {
+                if i == &self.position {
+                    thing = false;
+                    break;
+                } else {
+                    thing = true;
+                }
+            }
+
+            if thing {
+                break;
+            } else {
+                self.position = Position {
+                    x: thread_rng().gen_range(0..=(size.width / (BLOCK_SIZE * 2.0)) as i32),
+                    y: thread_rng().gen_range(0..=(size.height / (BLOCK_SIZE * 2.0)) as i32),
+                };
+            }
         }
     }
 
