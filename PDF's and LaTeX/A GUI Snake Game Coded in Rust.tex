@@ -1,6 +1,6 @@
 \documentclass{article}
 \usepackage{blindtext}
-\usepackage[paperheight=107in,paperwidth=10in,margin=1in]{geometry}
+\usepackage[paperheight=84in,paperwidth=10in,margin=1in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
@@ -11,106 +11,6 @@
 \titleformat{\section}{\normalfont\Large\bfseries}{}{0pt}{}
 
 \begin{document}
-
-
-\title{A GUI Snake Game Coded in Rust}
-\author{Brighton Sikarskie}
-\date{2021}
-\maketitle
-
-\section{LICENSE}
-\begin{minted}{md}
-MIT License
-
-Copyright (c) 2021 Brighton Sikarskie
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-\end{minted}
-
-\section{README.md}
-\begin{minted}{md}
-# Snake
-
-## Game
-
-<p align="left">
-<img alt="snake beginning" src="assets/snake beginning.png"/>
-<img alt="snake during" src="assets/snake during.png"/>
-<img alt="snake final" src="assets/snake final.png"/>
-<img alt="snake gameplay" src="assets/snake gameplay.gif"/>
-</p>
-
-## Information for College Board
-The code that I am using that is not a part of the standard library are:
-
-rand:
-https://crates.io/crates/rand</br>
-piston_window:
-https://crates.io/crates/piston_window</br>
-piston2d-opengl_graphics:
-https://crates.io/crates/piston2d-opengl_graphics</br>
-
-**** NOTE ****</br>
-Rust has a really small standard library so it is common to 'import' others code</br>
-for more information about this read this:</br>
-https://users.rust-lang.org/t/rust-should-have-a-big-standard-library-and-heres-why/37449</br>
-it talks about making rust have a larger standard library and the creaters of the</br>
-language shut this down listing the reasons for not having a large library.
-
-Also refer to this to learn some more about cargo (the package manager for rust)</br>
-https://doc.rust-lang.org/stable/book/ch01-03-hello-cargo.html
-
-Cargo is a convention and is standard even though I am taking code from a third party source</br>
-it is standard.
-
-The only asset that I used in this code is a font:
-
-FiraSans-Regular.ttf:
-https://www.ffonts.net/Fira-Sans-Regular.font
-
-## Setup and run
-Install rust:</br>
-https://www.rust-lang.org/tools/install</br>
-be in the root directory and run:
-<code>cargo run</code>
-\end{minted}
-
-\section{Cargo.toml}
-\begin{minted}{rust}
-[package]
-name = "snake"
-version = "0.1.0"
-authors = ["Brighton Sikarskie <brighton.sikarskie@tuta.io>"]
-edition = "2018"
-description = "A simple GUI rust snake game"
-readme = "README.md"
-homepage = "https://github.com/bsikar/snake"
-repository = "https://github.com/bsikar/snake/"
-license = "MIT"
-keywords = ["gamedev", "graphics", "game", "gui"]
-categories = ["games"]
-
-[dependencies]
-rand = "0.8.0"
-piston_window = "0.119.0"
-piston2d-opengl_graphics = "0.78.0"
-\end{minted}
 
 \section{main.rs}
 \begin{minted}{rust}
@@ -487,27 +387,6 @@ impl Snake {
     }
 
     // draw the snake
-    /*
-    pub fn draw(&self, c: &Context, g: &mut G2d) {
-        draw(
-            Color::SNAKE_HEAD,
-            self.position.x as u32,
-            self.position.y as u32,
-            1,
-            1,
-            c,
-            g,
-        );
-        self.tail
-            .iter()
-            .skip(1)
-            .for_each(|seg| draw(Color::SNAKE_BODY, seg.x as u32, seg.y as u32, 1, 1, c, g));
-    }
-    */
-    // NOTE I am rewriting this to remove confusion by the .for_each()
-    // I would have used the code above, but I do not want to get points
-    // remove by someone who is confused if I was accessing multiple
-    // elements in the list (VecDeque)
     pub fn draw(&self, c: &Context, g: &mut G2d) {
         draw(
             Color::SNAKE_HEAD,
@@ -563,18 +442,6 @@ impl Food {
     }
 
     // spawn the food on the screen in a valid location
-    /*
-    pub fn spawn(&mut self, size: Size, snake: &Snake) {
-        while snake.tail.contains(&self.position) {
-            self.position = Position {
-                x: thread_rng().gen_range(0..=(size.width / (BLOCK_SIZE * 2.0)) as i32),
-                y: thread_rng().gen_range(0..=(size.height / (BLOCK_SIZE * 2.0)) as i32),
-            };
-        }
-    }
-    */
-    // NOTE I am rewriting this to fit the college board requirements
-    // I would have used the code above if it fit the requirements
     pub fn spawn(&mut self, size: Size, snake: &Snake) {
         loop {
             let mut thing: bool = true;
