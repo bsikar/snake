@@ -24,7 +24,7 @@ fn main() {
         window.size(),
     );
 
-    while let Some(e) = window.next() {
+    for e in window.by_ref() {
         if let Some(args) = e.render_args() {
             game.draw_instructions(args);
         }

@@ -97,7 +97,7 @@ impl Game {
     // change the direction the snake is moving based on the players
     // keyboard input
     fn key_direction(&self, key: Key) -> Direction {
-        return {
+        {
             match key {
                 Key::Right | Key::D => Direction::Right,
                 Key::Left | Key::A => Direction::Left,
@@ -106,7 +106,7 @@ impl Game {
                 Key::Q => Direction::Still,
                 _ => self.snake.direction,
             }
-        };
+        }
     }
 
     // call functions to draw the snake and the food

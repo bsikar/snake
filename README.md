@@ -1,44 +1,46 @@
-# Snake
+# Rust Snake Game
+
+A simple Snake game implemented in Rust with a graphical user interface.
 
 ## Game
 
-<p align="left">
-<img alt="snake beginning" src="assets/snake beginning.png"/>
-<img alt="snake during" src="assets/snake during.png"/>
-<img alt="snake final" src="assets/snake final.png"/>
-<img alt="snake gameplay" src="assets/snake gameplay.gif"/>
+<p align="center">
+  <img alt="Snake beginning" src="assets/snake_beginning.png"/>
+  <img alt="Snake during" src="assets/snake_during.png"/>
+  <img alt="Snake final" src="assets/snake_final.png"/>
+  <img alt="Snake gameplay" src="assets/snake_gameplay.gif"/>
 </p>
 
-## Information for College Board
-The code that I am using that is not a part of the standard library are:
+## Dependencies
 
-rand:
-https://crates.io/crates/rand</br>
-piston_window:
-https://crates.io/crates/piston_window</br>
-piston2d-opengl_graphics:
-https://crates.io/crates/piston2d-opengl_graphics</br>
+This project uses the following third-party crates:
 
-**** NOTE ****</br>
-Rust has a really small standard library so it is common to 'import' others code</br>
-for more information about this read this:</br>
-https://users.rust-lang.org/t/rust-should-have-a-big-standard-library-and-heres-why/37449</br>
-it talks about making rust have a larger standard library and the creaters of the</br>
-language shut this down listing the reasons for not having a large library.
+- [rand](https://crates.io/crates/rand)
+- [piston_window](https://crates.io/crates/piston_window)
+- [piston2d-opengl_graphics](https://crates.io/crates/piston2d-opengl_graphics)
 
-Also refer to this to learn some more about cargo (the package manager for rust)</br>
-https://doc.rust-lang.org/stable/book/ch01-03-hello-cargo.html
+## Installation
 
-Cargo is a convention and is standard even though I am taking code from a third party source</br>
-it is standard.
+To install Rust, follow the instructions provided on the [official website](https://www.rust-lang.org/tools/install).
 
-The only asset that I used in this code is a font:
+To build and run the Snake game, clone this repository and run the following command in the root directory:
 
-FiraSans-Regular.ttf:
-https://www.ffonts.net/Fira-Sans-Regular.font
+```bash
+cargo run
+```
 
-## Setup and run
-Install rust:</br>
-https://www.rust-lang.org/tools/install</br>
-be in the root directory and run:
-<code>cargo run</code>
+## Gameplay
+
+Once you run the program, the game will start automatically. The objective of the game is to control the snake by moving it around the screen and collecting food items. As the snake eats more food, it grows in length, making the game more challenging. If the snake collides with itself or the edges of the screen, the game ends.
+
+## Assets
+
+The only asset used in this project is the font "FiraSans-Regular.ttf", which is available for free on FFonts.net.
+
+## Contributions
+
+Contributions to this project are welcome. Please feel free to create a pull request or submit an issue if you have any suggestions or encounter any problems.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
