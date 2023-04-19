@@ -5,10 +5,10 @@ A simple Snake game implemented in Rust with a graphical user interface.
 ## Game
 
 <p align="center">
-  <img alt="Snake beginning" src="assets/snake_beginning.png"/>
-  <img alt="Snake during" src="assets/snake_during.png"/>
-  <img alt="Snake final" src="assets/snake_final.png"/>
-  <img alt="Snake gameplay" src="assets/snake_gameplay.gif"/>
+  <img alt="Snake beginning" src="assets/snake beginning.png"/>
+  <img alt="Snake during" src="assets/snake during.png"/>
+  <img alt="Snake final" src="assets/snake final.png"/>
+  <img alt="Snake gameplay" src="assets/snake gameplay.gif"/>
 </p>
 
 ## Dependencies
